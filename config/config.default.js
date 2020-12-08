@@ -45,7 +45,8 @@ module.exports = appInfo => {
   config.session = {
     key: 'SESS',
     httpOnly: true,
-    maxAge: 1000 * 5
+    maxAge: 1000 * 5,
+    renew: true,
   };
 
   // add your user config here
