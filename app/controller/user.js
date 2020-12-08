@@ -6,6 +6,8 @@ class UserController extends Controller {
   async index() {
     const { ctx } = this;
     const user = ctx.cookies.get('user');
+    const session = ctx.session.user
+    console.log("session", session)
     await ctx.render('user.html', {
       id: 100,
       name: 'ele',
@@ -22,7 +24,7 @@ class UserController extends Controller {
     const zh = ctx.cookies.get('zh', {
       encrypt: true,
     });
-    console.log(zh);
+    ctx.session.user = body
     ctx.cookies.set('user', JSON.stringify(body), {
       maxAge: 1000 * 60 * 10,
       httpOnly: false,
