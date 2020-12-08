@@ -13,6 +13,12 @@ class HomeController extends Controller {
     console.log(ctx.info);
     ctx.body = 'this is demo';
   }
+  async newApplication() {
+    const { ctx, app } = this;
+    // console.log(app.package("author"));
+    console.log(app.allPackage)
+    ctx.body = 'newApplication';
+  }
 }
 
 module.exports = HomeController;
