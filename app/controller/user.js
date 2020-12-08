@@ -5,7 +5,11 @@ const Controller = require('egg').Controller;
 class UserController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'user index';
+    await ctx.render('user.html', {
+      id: 100,
+      name: 'ele',
+      lists: ['apple', 'hawei', 'xiaomi'],
+    });
   }
   async lists() {
     const { ctx } = this;
@@ -17,39 +21,39 @@ class UserController extends Controller {
     ctx.body = [{ id: '1', name: 'eli' }];
   }
   async detail() {
-    const {ctx} = this
+    const { ctx } = this;
 
-    const res = await ctx.service.user.detail(10)
-    
-    console.log(res)
-    ctx.body = ctx.query.id
+    const res = await ctx.service.user.detail(10);
+
+    console.log(res);
+    ctx.body = ctx.query.id;
   }
   async detail2() {
-    const {ctx} = this
-    
-    ctx.body = ctx.params.id
+    const { ctx } = this;
+
+    ctx.body = ctx.params.id;
   }
   async add() {
-    const {ctx} = this
+    const { ctx } = this;
     const rule = {
-      name: {type: 'string'},
-      age: {type: 'number'}
-    } 
-    ctx.validate(rule)
+      name: { type: 'string' },
+      age: { type: 'number' },
+    };
+    ctx.validate(rule);
     ctx.body = {
       status: 200,
-      data: ctx.request.body
-    }
+      data: ctx.request.body,
+    };
   }
   async edit() {
-    const {ctx} = this
-    
-    ctx.body = ctx.request.body
+    const { ctx } = this;
+
+    ctx.body = ctx.request.body;
   }
   async del() {
-    const {ctx} = this
-    
-    ctx.body = ctx.request.body
+    const { ctx } = this;
+
+    ctx.body = ctx.request.body;
   }
 }
 

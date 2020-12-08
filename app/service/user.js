@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const Service = require('egg').Service;
 
@@ -7,9 +7,8 @@ class UserService extends Service {
     const { app } = this;
     return {
       id,
-      name: "eli"
-    }
-
+      name: 'eli',
+    };
   }
 }
 
