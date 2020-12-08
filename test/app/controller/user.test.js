@@ -9,5 +9,12 @@ describe('user test', () => {
       .expect(200)
       .expect('user index');
   });
+  it('user lists', async () => {
+    return app.httpRequest()
+      .get('/user/lists')
+      .expect(200)
+      .expect('[{"id":"1","name":"eli"}]')
+
+  })
 });
 
