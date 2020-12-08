@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/user.css"></link>
 </head>
 
 <body>
+  <% include user-header.html %> 
   user page
   <hr />
   <%# 注释%>
@@ -15,12 +17,13 @@
   <br />
   name: <%= name%>
   <br />
-  <ul>
+  <ul id="user">
 
     <% for (var i = 0; i < lists.length; i++) {  %>
     <li><%= lists[i] %> </li>
     <% } %>
   </ul>
+  <script src="assets/js/user.js"></script>
 </body>
 
 </html>
