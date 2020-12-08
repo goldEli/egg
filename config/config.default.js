@@ -42,6 +42,10 @@ module.exports = appInfo => {
     dir: path.join(appInfo.baseDir, 'app/assets')
   }
 
+  config.session = {
+    key: "SESS"
+  }
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
