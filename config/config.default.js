@@ -2,6 +2,8 @@
 
 'use strict';
 
+const path = require('path');
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -28,11 +30,12 @@ module.exports = appInfo => {
     mapping: {
       '.html': 'ejs',
     },
+    root: path.join(appInfo.baseDir, 'app/html'),
   };
 
   config.ejs = {
-    
-  }
+    delimiter: '%',
+  };
 
   // add your user config here
   const userConfig = {
