@@ -5,7 +5,7 @@ module.exports = {
     return key ? pack[key] : pack;
   },
   get allPackage() {
-    getPackage();
+    return getPackage();
   },
 };
 
