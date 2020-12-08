@@ -16,6 +16,13 @@ class UserController extends Controller {
   async login() {
     const { ctx } = this;
     const { body } = ctx.request;
+    ctx.cookies.set('zh', '中文', {
+      encrypt: true,
+    });
+    const zh = ctx.cookies.get('zh', {
+      encrypt: true,
+    });
+    console.log(zh);
     ctx.cookies.set('user', JSON.stringify(body), {
       maxAge: 1000 * 60 * 10,
       httpOnly: false,
