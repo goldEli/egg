@@ -16,5 +16,19 @@ describe('user test', () => {
       .expect('[{"id":"1","name":"eli"}]')
 
   })
+  it('user detail', async () => {
+    return app.httpRequest()
+      .get('/user/detail?id=123')
+      .expect(200)
+      .expect('123')
+
+  })
+  it('user detail2', async () => {
+    return app.httpRequest()
+      .get('/user/detail2/100')
+      .expect(200)
+      .expect('100')
+
+  })
 });
 
