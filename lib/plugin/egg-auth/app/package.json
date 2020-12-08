@@ -1,0 +1,6 @@
+{
+  "name": "ee-auth",
+  "eggPlugin": {
+    "name": "auth"
+  }
+}

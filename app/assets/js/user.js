@@ -1,7 +1,7 @@
 // alert('user')
 
 function login() {
-  fetch('user/login', {
+  fetch('/login', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -16,7 +16,7 @@ function login() {
 }
 
 function logout() {
-  fetch('user/logout', {
+  fetch('/logout', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',

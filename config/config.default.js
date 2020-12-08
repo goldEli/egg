@@ -18,16 +18,20 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1607330542526_2988';
 
   // add your middleware config here
-  config.middleware = ["httpLog"];
+  config.middleware = ['httpLog'];
 
   config.httpLog = {
-    type: "all"
-  }
+    type: 'all',
+  };
 
   config.security = {
     csrf: {
       enable: false,
     },
+  };
+
+  config.auth = {
+    exclude: ['/home', '/user', '/login', '/logout'],
   };
 
   config.view = {

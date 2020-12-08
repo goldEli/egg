@@ -20,4 +20,8 @@ exports.validate = {
 exports.ejs = {
   enable: true,
   package: 'egg-view-ejs'
+};
+exports.auto = {
+  enable: true,
+  path: path.join(__dirname, "../lib/plugin/egg-auth")
 }
