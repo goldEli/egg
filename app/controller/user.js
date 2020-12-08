@@ -37,7 +37,16 @@ class UserController extends Controller {
       status: 200,
       data: ctx.request.body
     }
-
+  }
+  async edit() {
+    const {ctx} = this
+    
+    ctx.body = ctx.request.body
+  }
+  async del() {
+    const {ctx} = this
+    
+    ctx.body = ctx.request.body
   }
 }
 
