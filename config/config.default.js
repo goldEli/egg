@@ -20,6 +20,10 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = ["httpLog"];
 
+  config.httpLog = {
+    type: "all"
+  }
+
   config.security = {
     csrf: {
       enable: false,
