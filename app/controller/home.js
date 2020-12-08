@@ -28,6 +28,7 @@ class HomeController extends Controller {
 
     const { ctx } = this;
     console.log("request:", ctx.request.token)
+    console.log("base64", ctx.helper.base64Encode('newContext'))
     ctx.body = 'newContext';
   }
 }
