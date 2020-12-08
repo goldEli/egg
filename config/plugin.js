@@ -1,5 +1,5 @@
 'use strict';
-const path = require('path')
+const path = require('path');
 
 // /** @type Egg.EggPlugin */
 // module.exports = {
@@ -11,5 +11,5 @@ const path = require('path')
 
 exports.info = {
   enable: true,
-  path: path.join(__dirname, "../lib/plugin/egg-info")
-}
+  path: path.join(__dirname, '../lib/plugin/egg-info'),
+};

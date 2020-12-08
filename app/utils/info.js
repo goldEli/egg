@@ -1,10 +1,11 @@
-const os = require("os")
+'use strict';
+const os = require('os');
 
 module.exports = () => {
   const data = {
-    memory: os.totalmem() / 1024 / 1024 / 1024 + "G",
+    memory: os.totalmem() / 1024 / 1024 / 1024 + 'G',
     platform: os.platform(),
-    cups: os.cpus().length 
-  }
-  return data
-}
+    cups: os.cpus().length,
+  };
+  return data;
+};
