@@ -24,6 +24,12 @@ class HomeController extends Controller {
     console.log("params:", ctx.params())
     ctx.body = 'newContext';
   }
+  async newRequest() {
+
+    const { ctx } = this;
+    console.log("request:", ctx.request.token)
+    ctx.body = 'newContext';
+  }
 }
 
 module.exports = HomeController;
