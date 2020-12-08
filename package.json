@@ -27,10 +27,10 @@
     "stop": "egg-scripts stop --title=egg-server-egg",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
-    "test": "npm run lint -- --fix && npm run test-local",
+    "test": "npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
-    "lint": "eslint . --max-warnings 5",
+    "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
   },

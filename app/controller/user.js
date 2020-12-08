@@ -4,17 +4,17 @@ const Controller = require('egg').Controller;
 
 class UserController extends Controller {
   async index() {
-    const { ctx, app } = this;
+    const { ctx } = this;
     ctx.body = 'user index';
   }
   async lists() {
-    const {ctx} = this;
-    await new Promise((resolve, reject) => {
+    const { ctx } = this;
+    await new Promise(resolve => {
       setTimeout(() => {
-        resolve()
-      }, 5000)
-    })
-    ctx.body = [{id: "1", name: "eli"}]
+        resolve();
+      }, 5000);
+    });
+    ctx.body = [{ id: '1', name: 'eli' }];
   }
 }
 
