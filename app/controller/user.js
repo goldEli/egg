@@ -5,11 +5,32 @@ const Controller = require('egg').Controller;
 class UserController extends Controller {
   async index() {
     const { ctx } = this;
+    const user = ctx.cookies.get('user');
     await ctx.render('user.html', {
       id: 100,
       name: 'ele',
       lists: ['apple', 'hawei', 'xiaomi'],
+      user: typeof user === 'string' && JSON.parse(user),
     });
+  }
+  async login() {
+    const { ctx } = this;
+    const { body } = ctx.request;
+    ctx.cookies.set('user', JSON.stringify(body), {
+      maxAge: 1000 * 60 * 10,
+      httpOnly: false,
+    });
+    ctx.body = {
+      status: 200,
+      data: body,
+    };
+  }
+  async logout() {
+    const { ctx } = this;
+    ctx.cookies.set('user', '');
+    ctx.body = {
+      status: 200,
+    };
   }
   async lists() {
     const { ctx } = this;

@@ -12,10 +12,16 @@
   <% include user-header.html %> 
   user page
   <hr />
+  <button onclick="login()">login</button>
+  <button onclick="logout()">loginout</button>
   <%# 注释%>
   id: <%= id %>
   <br />
-  name: <%= name%>
+  <% if (user) { %> 
+  name: <%= user.name%>
+  <% } else { %> 
+  name: 未登录
+  <% } %> 
   <br />
   <ul id="user">
 
