@@ -38,13 +38,14 @@ module.exports = appInfo => {
   };
 
   config.static = {
-    prefix: "/assets/",
-    dir: path.join(appInfo.baseDir, 'app/assets')
-  }
+    prefix: '/assets/',
+    dir: path.join(appInfo.baseDir, 'app/assets'),
+  };
 
   config.session = {
-    key: "SESS"
-  }
+    key: 'SESS',
+    httpOnly: true,
+  };
 
   // add your user config here
   const userConfig = {
