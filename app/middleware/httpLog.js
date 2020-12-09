@@ -19,6 +19,6 @@ module.exports = options => async (ctx, next) => {
   const content = `${endTime} [httpLog] ${JSON.stringify(log)} \r\n`
 
   fs.appendFileSync(ctx.app.baseDir+"/httpLog.log", content)
-  // console.log(log);
+  console.log(log);
 
 };

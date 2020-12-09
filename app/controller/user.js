@@ -6,8 +6,8 @@ class UserController extends Controller {
   async index() {
     const { ctx } = this;
     const user = ctx.cookies.get('user');
-    const session = ctx.session.user
-    console.log("session", session)
+    const session = ctx.session.user;
+    console.log('session', session);
     await ctx.render('user.html', {
       id: 100,
       name: 'ele',
@@ -24,7 +24,7 @@ class UserController extends Controller {
     const zh = ctx.cookies.get('zh', {
       encrypt: true,
     });
-    ctx.session.user = body
+    ctx.session.user = body;
     ctx.cookies.set('user', JSON.stringify(body), {
       maxAge: 1000 * 60 * 10,
       httpOnly: false,
@@ -42,27 +42,21 @@ class UserController extends Controller {
     };
   }
   async lists() {
-    const { ctx, app } = this;
-    console.log(app.mysql)
-    await new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, 5000);
-    });
-    ctx.body = [{ id: '1', name: 'eli' }];
+    const { ctx } = this;
+    const lists = await ctx.service.user.lists();
+    ctx.body = lists;
   }
   async detail() {
     const { ctx } = this;
 
     const res = await ctx.service.user.detail(10);
 
-    console.log(res);
-    ctx.body = ctx.query.id;
+    ctx.body = res;
   }
   async detail2() {
     const { ctx } = this;
-
-    ctx.body = ctx.params.id;
+    const res = await ctx.service.user.detail2(ctx.params.id);
+    ctx.body = res;
   }
   async add() {
     const { ctx } = this;

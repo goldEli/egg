@@ -1,5 +1,5 @@
 module.exports = {
-  params(key) {
+  getParams(key) {
     const {method} = this.request
     if (method === "GET") {
       return key ? this.query[key] : this.query

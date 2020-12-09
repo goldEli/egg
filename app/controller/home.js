@@ -21,7 +21,7 @@ class HomeController extends Controller {
   }
   async newContext() {
     const { ctx } = this;
-    console.log("params:", ctx.params())
+    console.log("params:", ctx.getParams())
     ctx.body = 'newContext';
   }
   async newRequest() {
