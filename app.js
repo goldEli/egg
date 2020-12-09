@@ -20,5 +20,5 @@ module.exports = app => {
     },
   };
 
-  app.config.coreMiddleware.push('auth');
+  // app.config.coreMiddleware.push('auth');
 };

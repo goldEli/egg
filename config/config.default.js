@@ -34,6 +34,18 @@ module.exports = appInfo => {
     exclude: ['/home', '/user', '/login', '/logout'],
   };
 
+  config.mysql = {
+    app: true, // 挂载到app
+    agent: false,
+    client: {
+      host: 'localhost',
+      port: '3306',
+      user: 'root',
+      password: '123456',
+      database: 'egg',
+    },
+  };
+
   config.view = {
     mapping: {
       '.html': 'ejs',
