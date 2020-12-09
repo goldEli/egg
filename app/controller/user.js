@@ -60,25 +60,32 @@ class UserController extends Controller {
   }
   async add() {
     const { ctx } = this;
-    const rule = {
-      name: { type: 'string' },
-      age: { type: 'number' },
-    };
-    ctx.validate(rule);
+    // const rule = {
+    //   name: { type: 'string' },
+    //   age: { type: 'number' },
+    // };
+    // ctx.validate(rule);
+    const res = await ctx.service.user.add(ctx.getParams());
     ctx.body = {
       status: 200,
-      data: ctx.request.body,
+      data: res,
     };
   }
   async edit() {
     const { ctx } = this;
-
-    ctx.body = ctx.request.body;
+    const res = await ctx.service.user.edit(ctx.getParams());
+    ctx.body = {
+      status: 200,
+      data: res,
+    };
   }
   async del() {
     const { ctx } = this;
-
-    ctx.body = ctx.request.body;
+    const res = await ctx.service.user.del(ctx.getParams("id"));
+    ctx.body = {
+      status: 200,
+      data: res,
+    };
   }
 }
 

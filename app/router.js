@@ -7,7 +7,7 @@ module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
   router.get('/newApplication', controller.home.newApplication);
-  router.get('/newContext', controller.home.newContext);
+  router.post('/newContext', controller.home.newContext);
   router.get('/newRequest', controller.home.newRequest);
   router.get('/user', controller.user.index);
   router.get('/user/lists', controller.user.lists);
