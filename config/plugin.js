@@ -19,13 +19,18 @@ exports.validate = {
 };
 exports.ejs = {
   enable: true,
-  package: 'egg-view-ejs'
+  package: 'egg-view-ejs',
 };
 exports.mysql = {
   enable: true,
-  package: 'egg-mysql'
+  package: 'egg-mysql',
 };
 exports.auth = {
   enable: false,
-  path: path.join(__dirname, "../lib/plugin/egg-auth")
-}
+  path: path.join(__dirname, '../lib/plugin/egg-auth'),
+};
+
+exports.sequelize = {
+  enable: true,
+  package: 'egg-sequelize',
+};

@@ -1,5 +1,5 @@
 {
-  "name": "ee-auth",
+  "name": "egg-auth",
   "eggPlugin": {
     "name": "auth"
   }

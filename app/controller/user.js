@@ -43,13 +43,21 @@ class UserController extends Controller {
   }
   async lists() {
     const { ctx } = this;
-    const lists = await ctx.service.user.lists();
+    // const lists = await ctx.service.user.lists();
+    const lists = await ctx.model.User.findAll({
+      // where: {
+      //   id: 3
+      // }
+      // limit: 1,
+      // offset: 1,
+    });
     ctx.body = lists;
   }
   async detail() {
     const { ctx } = this;
 
-    const res = await ctx.service.user.detail(10);
+    // const res = await ctx.service.user.detail(10);
+    const res = await ctx.model.User.findByPk(ctx.getParams('id'));
 
     ctx.body = res;
   }
@@ -65,7 +73,8 @@ class UserController extends Controller {
     //   age: { type: 'number' },
     // };
     // ctx.validate(rule);
-    const res = await ctx.service.user.add(ctx.getParams());
+    // const res = await ctx.service.user.add(ctx.getParams());
+    const res = await ctx.model.User.create(ctx.getParams());
     ctx.body = {
       status: 200,
       data: res,
@@ -73,15 +82,33 @@ class UserController extends Controller {
   }
   async edit() {
     const { ctx } = this;
-    const res = await ctx.service.user.edit(ctx.getParams());
+    // const res = await ctx.service.user.edit(ctx.getParams());
+    const user = await ctx.model.User.findByPk(ctx.getParams('id'));
+    if (!user) {
+      ctx.body = {
+        status: 404,
+        msg: 'id dose not exist',
+      };
+      return;
+    }
+    const res = await user.update(ctx.getParams());
     ctx.body = {
       status: 200,
-      data: res,
+      data: res
     };
   }
   async del() {
     const { ctx } = this;
-    const res = await ctx.service.user.del(ctx.getParams("id"));
+    // const res = await ctx.service.user.del(ctx.getParams('id'));
+    const user = await ctx.model.User.findByPk(ctx.getParams('id'));
+    if (!user) {
+      ctx.body = {
+        status: 404,
+        msg: 'id dose not exist',
+      };
+      return;
+    }
+    const res = await user.destroy(ctx.getParams('id'));
     ctx.body = {
       status: 200,
       data: res,
